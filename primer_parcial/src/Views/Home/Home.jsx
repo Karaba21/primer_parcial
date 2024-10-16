@@ -11,48 +11,16 @@ const Home = () => {
 
   const navigate = useNavigate();
 
-const getRecetas = async () => {
-    const recetasFetch = await fetch('http://localhost:3000/dishes');
-    const recetasA =  await recetasFetch.json()
-    return recetasA;
-};
+const fetchRecetas = async () => {
+    const response = await fetch("http://localhost:3000/dishes");
+    const data = await response.json();
+    console.log(data);
+    setRecetas(data);
+    setFilteredRecetas(data);
+  };
 
-const fetchReceta = async () => {
-    try {
-        const response = await fetch(`http://localhost:3000/dishes`);
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        setRecetas(data.dishes);
-        console.log(recetas);
-    } catch (error) {
-        console.error('Error fetching receta:', error);
-    }
-};
-
-useEffect(() => {
-    fetchReceta();
-}, []);
-
-/*
-const deleteReceta = async (id) => {
-    try {
-        const response = await fetch(`http://localhost:3000/dishes/${id}`, {
-            method: 'DELETE',
-        });
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        setRecetas((prevRecetas) => prevRecetas.filter((receta) => receta.id !== id));
-        setFilteredRecetas((prevRecetas) => prevRecetas.filter((receta) => receta.id !== id));
-    } catch (error) {
-        console.error('Error deleting receta:', error);
-    }
-};
-*/
   useEffect(() => {
-    fetchReceta();
+    fetchRecetas();
   }, []);
 
   const handleSearch = (e) => {
@@ -116,8 +84,9 @@ const deleteReceta = async (id) => {
           {filteredRecetas.map((receta) => (
             <Receta
               key={receta.id}
-              imagen={receta.imagen}
+              image={receta.image}
               id={receta.id}
+              title={receta.title}
               refreshRecetas={fetchRecetas}
             />
           ))}
