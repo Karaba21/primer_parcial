@@ -1,0 +1,121 @@
+.home-title-wrapp {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .home-grid-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .home-grid-cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .home-grid-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .home-no-recetas {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .add-receta-button {
+    padding: 5px 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #38cacf;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .add-game-button:hover {
+    background-color: #32a4a8;
+  }
+
+  /*
+  si quiero tener dropdown menu en el buscador
+
+  /* Estilo del contenedor de búsqueda */
+.search-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo del input de búsqueda */
+  .search-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Lista desplegable */
+  .dropdown-list {
+    position: absolute;
+    width: 100%;
+    max-height: 150px;
+    overflow-y: auto;
+    background-color: rgb(151, 114, 114);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    z-index: 10;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Estilo de cada opción del dropdown */
+  .dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  
+
+
+.home-grid-cards .card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.home-grid-cards .card:hover {
+    transform: translateY(-5px);
+}
+
+.home-grid-cards .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.home-grid-cards .card-content {
+    font-size: 14px;
+    color: #666;
+}
+
+.home-grid-cards .card-data {
+    font-size: 12px;
+    color: #999;
+    margin-top: 8px;
+}
